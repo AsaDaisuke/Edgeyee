@@ -12,7 +12,7 @@
 
 <ul class="user-tabs">
       <li  id="all"><%= link_to("全ての投稿", "/users/show/#{user_shown.id}") %></li>
-      <li  id="skating"><%= link_to("スケーティング", "/users/posts/#{@current_user.id}/0") %></li>
+      <li  id="skating"><%= link_to("スケーティング", "/users/posts/#{@user.id}/0") %></li>
       <li id="jumps"><%= link_to("ジャンプ", "#") %></li>
       <li id="spins"><%= link_to("スピン", "#") %></li>
       <li class="active" id="others"><%= link_to("その他", "#") %></li>
@@ -20,27 +20,27 @@
 </ul>
 
 <ul id="jump-tabs"  class="jump-tabs">
-  <li><%= link_to("サルコウ", "/users/posts/#{@current_user.id}/10") %></li>
-  <li><%= link_to("トーループ", "/users/posts/#{@current_user.id}/11") %></li>
-  <li><%= link_to("ループ", "/users/posts/#{@current_user.id}/12") %></li>
-  <li><%= link_to("フリップ", "/users/posts/#{@current_user.id}/13") %></li>
-  <li><%= link_to("ルッツ", "/users/posts/#{@current_user.id}/14") %></li>
-  <li><%= link_to("アクセル", "/users/posts/#{@current_user.id}/15") %></li>
+  <li><%= link_to("サルコウ", "/users/posts/#{@user.id}/10") %></li>
+  <li><%= link_to("トーループ", "/users/posts/#{@user.id}/11") %></li>
+  <li><%= link_to("ループ", "/users/posts/#{@user.id}/12") %></li>
+  <li><%= link_to("フリップ", "/users/posts/#{@user.id}/13") %></li>
+  <li><%= link_to("ルッツ", "/users/posts/#{@user.id}/14") %></li>
+  <li><%= link_to("アクセル", "/users/posts/#{@user.id}/15") %></li>
 </ul>
 <ul id="spin-tabs" class="spin-tabs">
-  <li><%= link_to("アップライト", "/users/posts/#{@current_user.id}/20") %></li>
-  <li><%= link_to("シット", "/users/posts/#{@current_user.id}/21") %></li>
-  <li><%= link_to("キャメル", "/users/posts/#{@current_user.id}/22") %></li>
-  <li><%= link_to("レイバック", "/users/posts/#{@current_user.id}/23") %></li>
-  <li><%= link_to("コンビ", "/users/posts/#{@current_user.id}/24") %></li>
-  <li><%= link_to("フライング", "/users/posts/#{@current_user.id}/25") %></li>
+  <li><%= link_to("アップライト", "/users/posts/#{@user.id}/20") %></li>
+  <li><%= link_to("シット", "/users/posts/#{@user.id}/21") %></li>
+  <li><%= link_to("キャメル", "/users/posts/#{@user.id}/22") %></li>
+  <li><%= link_to("レイバック", "/users/posts/#{@user.id}/23") %></li>
+  <li><%= link_to("コンビ", "/users/posts/#{@user.id}/24") %></li>
+  <li><%= link_to("フライング", "/users/posts/#{@user.id}/25") %></li>
 </ul>
 <ul id="other-tabs" class="other-tabs visible">
-  <li><%= link_to("振付", "/users/posts/#{@current_user.id}/30") %></li>
-  <li><%= link_to("コンパル", "/users/posts/#{@current_user.id}/31") %></li>
-  <li><%= link_to("ダンス", "/users/posts/#{@current_user.id}/32") %></li>
-  <li><%= link_to("メンタル", "/users/posts/#{@current_user.id}/33") %></li>
-  <li class="active"><%= link_to("その他", "/users/posts/#{@current_user.id}/34") %></li>
+  <li><%= link_to("振付", "/users/posts/#{@user.id}/30") %></li>
+  <li><%= link_to("コンパル", "/users/posts/#{@user.id}/31") %></li>
+  <li><%= link_to("ダンス", "/users/posts/#{@user.id}/32") %></li>
+  <li><%= link_to("メンタル", "/users/posts/#{@user.id}/33") %></li>
+  <li class="active"><%= link_to("その他", "/users/posts/#{@user.id}/34") %></li>
 </ul>
 
 <div class="top-distance">
