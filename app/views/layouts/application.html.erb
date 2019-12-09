@@ -109,16 +109,28 @@ $(function () {
 
 $(function(){
   $("#jumps").click(function(){
+    $(".user-tabs li").css("border-bottom", "none");
+    $(".user-tabs a").css("color","#afb6bf");
+    $("#jumps a").css("color","#57575f");
+    $("#jumps").css("border-bottom","2px solid #3ecdc6");
     $("#jump-tabs").slideDown();
     $("#spin-tabs").slideUp();
     $("#other-tabs").slideUp();
   });
   $("#spins").click(function(){
+    $(".user-tabs li").css("border-bottom", "none");
+    $(".user-tabs a").css("color","#afb6bf");
+    $("#spins a").css("color","#57575f");
+    $("#spins").css("border-bottom","2px solid #3ecdc6");
     $("#spin-tabs").slideDown();
     $("#jump-tabs").slideUp();
     $("#other-tabs").slideUp();
   });
   $("#others").click(function(){
+    $(".user-tabs li").css("border-bottom", "none");
+    $(".user-tabs a").css("color","#afb6bf");
+    $("#others a").css("color","#57575f");
+    $("#others").css("border-bottom","2px solid #3ecdc6");
     $("#other-tabs").slideDown();
     $("#spin-tabs").slideUp();
     $("#jump-tabs").slideUp();

@@ -12,7 +12,7 @@
 
 <ul class="user-tabs">
       <li  id="all"><%= link_to("全ての投稿", "/users/show/#{user_shown.id}") %></li>
-      <li ><%= link_to("スケーティング", "/users/posts/#{@current_user.id}/0") %></li>
+      <li  id="skating"><%= link_to("スケーティング", "/users/posts/#{@current_user.id}/0") %></li>
       <li id="jumps"><%= link_to("ジャンプ", "#") %></li>
       <li id="spins"><%= link_to("スピン", "#") %></li>
       <li class="active" id="others"><%= link_to("その他", "#") %></li>
