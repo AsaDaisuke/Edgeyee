@@ -73,4 +73,24 @@ class LikesController < ApplicationController
     render("users/show")
   end
 
+  def create_self_
+    @name= params[:top]
+    post=Post.find_by(id: params[:post_id])
+    @user=post.user
+    category=post.category
+    like=Like.new(user_id: @current_user.id, post_id: params[:post_id])
+    like.save
+    render("users/show_#{category}")
+  end
+
+  def destroy_self_
+    @name= params[:top]
+    post=Post.find_by(id: params[:post_id])
+    @user=post.user
+    category=post.category
+    like=Like.find_by(user_id: @current_user, post_id: params[:post_id])
+    like.destroy
+    post=Post.find_by(id: params[:post_id])
+    render("users/show_#{category}")
+  end
 end

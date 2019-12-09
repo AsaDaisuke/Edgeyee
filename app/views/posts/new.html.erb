@@ -1,7 +1,7 @@
 
 <body>
 <div class="lets-post-wrapper">
-  <div class="posts-box">
+  <div class="post-box">
 <%= form_tag("/posts/create/#{params[:category_number]}") do %>
 
     <%category=Category.find_by(number: params[:category_number]) %>
