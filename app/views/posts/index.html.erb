@@ -4,6 +4,7 @@
 <div class="lets-post-wrapper">
     <%= link_to("検索する","#",class: "search lets-post white txtl") %>
 </div>
+
 <div class="posts-box">
 <%
     posts = @posts
@@ -31,15 +32,18 @@
           <span class="time"><%= time_ago_in_words(post.created_at) %>前</span>
         </div>
         <p><%= link_to(post.content,"/posts/#{post.id}",class: "index_content") %></p>
+
         <%if Like.find_by(user_id: @current_user.id, post_id: post.id)%>
-          <%=link_to("/likes/#{post.id}/destroy") do %>
-            <span class="fa fa-heart unlike-btn"></span>
+            <%=link_to("/likes/#{post.id}/destroy") do %>
+              <span class="fa fa-heart unlike-btn"></span>
+            <%end%>
+          <%else%>
+            <%= link_to("/likes/#{post.id}/create") do %>
+              <span class="fa fa-heart like-btn"></span>
+            <%end%>
           <%end%>
-        <%else%>
-          <%= link_to("/likes/#{post.id}/create") do %>
-            <span class="fa fa-heart like-btn"></span>
-          <%end%>
-        <%end%>
+
+
 
         <%=Like.where(post_id: post.id).count%>
 
