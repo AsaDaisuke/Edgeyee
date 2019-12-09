@@ -126,7 +126,30 @@ $(function(){
   });
 });
 
+$(function(){
+  $initialize = $(".top-distance").text();
+  $("html,body").scrollTop($initialize);
 
+
+  $("span").click(function(){
+    $(this).next().click();
+  });
+  $(".posts-box h1").click(function(){
+    var $top = $(window).scrollTop();
+    var post_id = $(this).text();
+    var post_class = "."+post_id
+    $(post_class).val($top);
+    $(this).next().click();
+  });
+  $(".posts-box h2").click(function(){
+    var post_id = $(this).text();
+    var id = "#"+post_id;
+    $(id).click();
+  });
+
+
+
+});
 
 
 

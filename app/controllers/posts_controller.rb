@@ -36,8 +36,8 @@ class PostsController < ApplicationController
     @posts=Post.where(category: params[:category_number]).order(created_at: :desc)
     @category=params[:category_number].to_i
     category=Category.find_by(number: params[:category_number])
-    @name=category.category
+    @category_name=category.category
   end
 
-  
+
 end

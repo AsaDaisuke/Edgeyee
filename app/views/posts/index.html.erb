@@ -4,12 +4,14 @@
 <div class="lets-post-wrapper">
     <%= link_to("検索する","#",class: "search lets-post white txtl") %>
 </div>
-
+<div class="top-distance">
+  <%= @name %>
+</div>
 <div class="posts-box">
 <%
     posts = @posts
 %>
-<h3 id="try3"><%= @scroll_top %></h3>
+
 
 
 
@@ -34,18 +36,31 @@
         <p><%= link_to(post.content,"/posts/#{post.id}",class: "index_content") %></p>
 
         <%if Like.find_by(user_id: @current_user.id, post_id: post.id)%>
-            <%=link_to("/likes/#{post.id}/destroy") do %>
-              <span class="fa fa-heart unlike-btn"></span>
-            <%end%>
-          <%else%>
-            <%= link_to("/likes/#{post.id}/create") do %>
-              <span class="fa fa-heart like-btn"></span>
-            <%end%>
+          <span class="fa fa-heart unlike-btn"></span>
+          <%=Like.where(post_id: post.id).count%>
+          <h1><%=post.id%></h1>
+          <h2><%=post.id%></h2>
+          <%=form_tag("/likes/#{post.id}/destroy") do%>
+            <textarea name="top" class="<%=post.id%>"></textarea>
+            <input type="submit" class="submit" id="<%=post.id%>" value="送信">
           <%end%>
 
 
+        <%else%>
+          <span class="fa fa-heart like-btn"></span>
+          <%=Like.where(post_id: post.id).count%>
+          <h1><%=post.id%></h1>
+          <h2><%=post.id%></h2>
+          <%=form_tag("/likes/#{post.id}/create") do%>
+            <textarea name="top" class="<%=post.id%>"></textarea>
+            <input type="submit" class="submit" id="<%=post.id%>" value="送信">
+          <%end%>
 
-        <%=Like.where(post_id: post.id).count%>
+
+        <%end%>
+
+
+
 
       </div>
     </div>

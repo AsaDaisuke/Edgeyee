@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  get "likes/:post_id/destroy/self" => "likes#destroy_self"
-  get "likes/:post_id/create/self" => "likes#create_self"
+  post "likes/:post_id/destroy/self" => "likes#destroy_self"
+  post "likes/:post_id/create/self" => "likes#create_self"
 
 
   get "likes/:post_id/destroy/show" => "likes#destroy_show"
   get "likes/:post_id/create/show" => "likes#create_show"
 
-  get "likes/:post_id/destroy/search" => "likes#destroy_search"
-  get "likes/:post_id/create/search" => "likes#create_search"
+  post "likes/:post_id/destroy/search" => "likes#destroy_search"
+  post "likes/:post_id/create/search" => "likes#create_search"
 
-  get "likes/:post_id/destroy" => "likes#destroy"
-  get "likes/:post_id/create" => "likes#create"
+  post "likes/:post_id/destroy" => "likes#destroy"
+  post "likes/:post_id/create" => "likes#create"
 
   get 'users/index' => "users#index"
 
