@@ -1,0 +1,29 @@
+<div class="login-bg">
+	<div class="login-header">""</div>
+
+
+	<div class="users-login-wrapper">
+		<div class="login-img-box">
+			<h1 class="login-img txtll">Edgeyee!</h1>
+			<p class="login-title">新規登録</p>
+  	</div>
+<%= form_tag("/users/signup") do %>
+    <input class="login-form txtm" name = "name" placeholder="名前">
+    <input class="login-form txtm" name = "email" placeholder="メールアドレス">
+    <input class="login-form txtm" name = "password" placeholder="パスワード" >
+    <p>所持級: <select class="select_form" name="select_form">
+      <option selected="selected" value="0"> 初級</option>
+      <option value="1"> 1級</option>
+      <option value="2"> 2級</option>
+      <option value="3"> 3級</option>
+      <option value="4"> 4級</option>
+      <option value="5"> 5級</option>
+      <option value="6"> 6級</option>
+      <option value="7"> 7級</option>
+    </select></p>
+    <input class="login-form txtm" name = "age" placeholder="年齢" >
+    <br>
+    <input class="submit-button white" type = "submit" value="新規登録">
+<% end %>
+	</div>
+</div>

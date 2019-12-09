@@ -1,0 +1,97 @@
+
+
+<body>
+<div class="lets-post-wrapper">
+    <%= link_to("検索する","#",class: "search lets-post white txtl") %>
+</div>
+<div class="posts-box">
+<%
+    posts = @posts
+%>
+<h3 id="try3"><%= @scroll_top %></h3>
+
+
+
+<% posts.each do |post| %>
+
+    <div class= "posts-index-item">
+      <div class="post-left">
+        <img src="<%= "/user_images/#{post.user.image_name}" %>">
+      </div>
+      <div class="post-right">
+        <% category = post.find_category() %>
+        <p><%= link_to(category.category,"/posts/search/#{category.number}", class: "category-name white txtxs") %></p>
+
+        <div class="user-info">
+          <%if post.user().rank==0%>
+          <%= link_to("#{post.user().name} /初級/ #{post.user().age}歳","/users/show/#{post.user().id}", class: "user-name") %>
+          <%else%>
+          <%= link_to("#{post.user().name} /#{post.user().rank}級/ #{post.user().age}歳","/users/show/#{post.user().id}", class: "user-name") %>
+          <%end%>
+          <span class="time"><%= time_ago_in_words(post.created_at) %>前</span>
+        </div>
+        <p><%= link_to(post.content,"/posts/#{post.id}",class: "index_content") %></p>
+        <%if Like.find_by(user_id: @current_user.id, post_id: post.id)%>
+          <%=link_to("/likes/#{post.id}/destroy") do %>
+            <span class="fa fa-heart unlike-btn"></span>
+          <%end%>
+        <%else%>
+          <%= link_to("/likes/#{post.id}/create") do %>
+            <span class="fa fa-heart like-btn"></span>
+          <%end%>
+        <%end%>
+
+        <%=Like.where(post_id: post.id).count%>
+
+      </div>
+    </div>
+<% end %>
+</div>
+
+
+<div class="modal js-modal-search">
+        <div class="modal__bg js-modal-close-search">
+        <div class="modal__content">
+          <div class="category-choices-search">
+            <ul>
+              <li class="category-choice-search"><a class="skating-search" href="/posts/search/0">スケーティング</a></li>
+              <li class="category-choice-search"><a class="next-jumps-search"　href="#">ジャンプ</a></li>
+              <li class="category-choice-search"><a class="next-spins-search" href="#">スピン</a></li>
+              <li class="category-choice-search"><a class="next-others-search" href="#">その他</a></li>
+            </ul>
+            <div class="category-choices-jump-search">
+            <ul>
+              <li class="category-choice-sub-search"><a href="/posts/search/10">サルコウ</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/11">トーループ</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/12">ループ</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/13">フリップ</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/14">ルッツ</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/15">アクセル</a></li>
+            </ul>
+              </div>
+              <div class="category-choices-spin-search">
+            <ul>
+              <li class="category-choice-sub-search"><a href="/posts/search/20">Up</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/21">Sit</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/22">Camel</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/23">Layback</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/24">Combi</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/25">Flying</a></li>
+            </ul>
+              </div>
+              <div class="category-choices-other-search">
+            <ul>
+              <li class="category-choice-sub-search"><a href="/posts/search/30">振付</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/31">コンパル</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/32">ダンス</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/33">メンタル</a></li>
+              <li class="category-choice-sub-search"><a href="/posts/search/34">その他</a></li>
+            </ul>
+              </div>
+          </div>
+          </div>
+
+        </div><!--modal__inner-->
+    </div><!--modal-->
+
+</body>

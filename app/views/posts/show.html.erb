@@ -1,0 +1,33 @@
+<div class="posts-box-show">
+  <div class= "posts-index-item">
+    <div class="post-left">
+      <img src="<%= "/user_images/#{@post.user.image_name}" %>">
+    </div>
+    <div class="post-right">
+      <% category = @post.find_category() %>
+      <p><%= link_to(category.category,"/posts/search/#{category.number}", class: "category-name white txtxs") %></p>
+
+      <div class="user-info">
+        <%if @post.user().rank==0%>
+        <%= link_to("#{@post.user().name} /初級/ #{@post.user().age}歳","/users/show/#{@post.user().id}", class: "user-name") %>
+        <%else%>
+        <%= link_to("#{@post.user().name} /#{@post.user().rank}級/ #{@post.user().age}歳","/users/show/#{@post.user().id}", class: "user-name") %>
+        <%end%>
+        <span class="time"><%= time_ago_in_words(@post.created_at) %>前</span>
+      </div>
+      <p><%= @post.content%></p>
+
+      <%if Like.find_by(user_id: @current_user.id, post_id: @post.id)%>
+        <%=link_to("/likes/#{@post.id}/destroy/show") do %>
+          <span class="fa fa-heart unlike-btn"></span>
+        <%end%>
+      <%else%>
+        <%= link_to("/likes/#{@post.id}/create/show") do %>
+          <span class="fa fa-heart like-btn"></span>
+        <%end%>
+      <%end%>
+      <%=Like.where(post_id: @post.id).count%>
+
+    </div>
+  </div>
+</div>

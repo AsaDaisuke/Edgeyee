@@ -1,0 +1,195 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "application";
+
+
+
+.lets-post-wrapper{
+	text-align: center;
+
+}
+
+.lets-post{
+	margin: 20px;
+	background-color: $main-color1;
+	display: inline-block;
+	font-weight: bold;
+	padding: 5px 70px;
+	letter-spacing: 3px;
+	border-radius: 30px;
+	position: relative;
+	top: 0;
+	transition: .3s;
+}
+.lets-post:hover{
+	top: -3px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.posts-box{
+	margin: 10px 15%;
+}
+
+.posts-box-show{
+	margin-top: 50px;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.category-name{
+	display: inline-block;
+	background-color: #000080;
+	padding: 3px 5px;
+	font-weight: bold;
+	width: 65px;
+	border-radius: 20px;
+	text-align: center;
+	position: relative;
+	top: 0;
+	transition: .25s;
+	color: white;
+
+}
+.category-name:hover{
+	top: -2px;
+}
+.posts-index-item {
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+	border-radius: 4px;
+}
+.time{
+	position: absolute;
+	left:78%;
+}
+.like-btn {
+  color: #8899a6;
+}
+
+.unlike-btn {
+  color: #ff2581;
+}
+.fa{
+	margin-top:10px;
+}
+
+
+
+.post-left {
+  float: left;
+  width: 10%;
+}
+
+.post-left img{
+	width: 60px;
+  height: 60px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+  vertical-align: middle;
+  object-fit: cover;
+	margin-top: 10px;
+}
+
+.post-right {
+  float: left;
+  width: 90%;
+  padding-left: 25px;
+  text-align: left;
+}
+
+.user-name{
+	display: inline-block;
+	font-weight: 600;
+	color: black;
+	over-flow: hidden;
+
+}
+.user-name:hover{
+	color: #3ecdc6;
+}
+.category-name-title{
+	font-weight: bold;
+	margin: 30px 0 10px;
+	display: inline-block;
+	position: relative;
+}
+.category-name-title::before{
+ content: "";
+  position: absolute;
+  background: #a9e1ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  border: dashed 1px white;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  box-shadow: 0px 0px 0px 5px #a9e1ff;
+}
+.index_content{
+	color: black;
+	padding-top:5px;
+	display: block;
+}
+
+.form-tag{
+	width: 80%;
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+	margin: 50px 0 30px;
+	border-radius: 5px;
+}
+.form-txt{
+	width: 80%;
+	border: 1px solid #CCCCCC;
+	height: 200px;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+textarea{
+	resize: none;
+}
+.new_title_0{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	border-radius: 50%;
+	margin: 0px auto;
+	color: $main-color1;
+	border: solid 2px $main-color2;
+}
+.new_title_10{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	border-radius: 50%;
+	margin: 0px auto;
+	color: $jump-color;
+	border: solid 2px $jump-color2;
+}
+.new_title_20{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	border-radius: 50%;
+	margin: 0px auto;
+	color: $spin-color;
+	border: solid 2px $spin-color2;
+}
+.new_title_30{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	border-radius: 50%;
+	margin: 0px auto;
+	color: $other-color;
+	border: solid 2px $other-color2;
+}

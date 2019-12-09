@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edgeyee!</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script type="text/javascript">
+            
+
+$(function(){
+    $('.js-modal-open').on('click',function(){
+        $('.js-modal').fadeIn(150);
+        $('.category-choices>ul').show();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut(150);
+        $('.category-choices-jump').hide();
+        $('.category-choices-spin').hide();
+        $('.category-choices-other').hide();
+        return false;
+    });
+    $('.category-choice,.category-choice-sub').click(function (event) {
+                // ウィンドウの中身をクリックしても、閉じないようにする
+                // (親である .windowBg への伝播を止める)
+                event.stopPropagation();
+        });
+});
+
+
+
+$(function () {
+    $('.next-jumps').click(function () {
+        $('.category-choices>ul').toggle();
+        $('.category-choices-jump').show(200).fadeIn(200);
+        return false;
+    });
+});
+
+$(function () {
+    $('.next-spins').click(function () {
+        $('.category-choices>ul').toggle();
+        $('.category-choices-spin').show(200).fadeIn(200);
+        return false;
+    });
+});
+
+$(function () {
+    $('.next-others').click(function () {
+        $('.category-choices>ul').toggle();
+        $('.category-choices-other').show(200).fadeIn(200);
+        return false;
+    });
+});
+
+
+
+
+$(function(){
+    $('.search').on('click',function(){
+        $('.js-modal-search').fadeIn(150);
+        $('.category-choices>ul').show();
+        return false;
+    });
+    $('.js-modal-close-search').on('click',function(){
+        $('.js-modal-search').fadeOut(150);
+        $('.category-choices-jump-search').hide();
+        $('.category-choices-spin-search').hide();
+        $('.category-choices-other-search').hide();
+        return false;
+    });
+    $('.category-choice-search,.category-choice-sub-search').click(function (event) {
+                // ウィンドウの中身をクリックしても、閉じないようにする
+                // (親である .windowBg への伝播を止める)
+                event.stopPropagation();
+        });
+});
+
+
+
+$(function () {
+    $('.next-jumps-search').click(function () {
+        $('.category-choices-search>ul').toggle();
+        $('.category-choices-jump-search').show(200).fadeIn(200);
+        return false;
+    });
+});
+
+$(function () {
+    $('.next-spins-search').click(function () {
+        $('.category-choices-search>ul').toggle();
+        $('.category-choices-spin-search').show(200).fadeIn(200);
+        return false;
+    });
+});
+
+$(function () {
+    $('.next-others-search').click(function () {
+        $('.category-choices-search>ul').toggle();
+        $('.category-choices-other-search').show(200).fadeIn(200);
+        return false;
+    });
+});
+
+$(function(){
+  $("#jumps").click(function(){
+    $("#jump-tabs").slideDown();
+    $("#spin-tabs").slideUp();
+    $("#other-tabs").slideUp();
+  });
+  $("#spins").click(function(){
+    $("#spin-tabs").slideDown();
+    $("#jump-tabs").slideUp();
+    $("#other-tabs").slideUp();
+  });
+  $("#others").click(function(){
+    $("#other-tabs").slideDown();
+    $("#spin-tabs").slideUp();
+    $("#jump-tabs").slideUp();
+
+  });
+
+
+
+});
+
+
+
+
+    </script>
+
+  </head>
+  <header>
+  	<div class="header-left">
+      <%= link_to("Edgeyee!","/posts/index",class: "header-letter")%>
+    </div>
+  </header>
+
+  <body>
+    <%= yield %>
+    <div><a class="post-button-fixed white js-modal-open" href="#">投稿</a></div>
+<div class="modal js-modal">
+        <div class="modal__bg js-modal-close">
+        <div class="modal__content">
+          <div class="category-choices">
+            <ul>
+              <li class="category-choice"><a class="skating" href="/posts/new/0">スケーティング</a></li>
+              <li class="category-choice"><a class="next-jumps"　href="#">ジャンプ</a></li>
+              <li class="category-choice"><a class="next-spins" href="#">スピン</a></li>
+              <li class="category-choice"><a class="next-others" href="#">その他</a></li>
+            </ul>
+            <div class="category-choices-jump">
+            <ul>
+              <li class="category-choice-sub"><a href="/posts/new/10">サルコウ</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/11">トーループ</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/12">ループ</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/13">フリップ</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/14">ルッツ</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/15">アクセル</a></li>
+            </ul>
+              </div>
+              <div class="category-choices-spin">
+            <ul>
+              <li class="category-choice-sub"><a href="/posts/new/20">Up</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/21">Sit</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/22">Camel</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/23">Layback</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/24">Combi</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/25">Flying</a></li>
+            </ul>
+              </div>
+              <div class="category-choices-other">
+            <ul>
+              <li class="category-choice-sub"><a href="/posts/new/30">振付</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/31">コンパル</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/32">ダンス</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/33">メンタル</a></li>
+              <li class="category-choice-sub"><a href="/posts/new/34">その他</a></li>
+            </ul>
+              </div>
+          </div>
+          </div>
+
+        </div><!--modal__inner-->
+    </div><!--modal-->
+
+  </body>
+</html>

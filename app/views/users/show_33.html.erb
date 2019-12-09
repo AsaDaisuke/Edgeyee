@@ -1,0 +1,83 @@
+<% user_shown = @user %>
+<% posts = Post.where(user_id: user_shown.id ,category: "33").order(created_at: :desc) %>
+
+<body>
+<div class="lets-post-wrapper">
+<p class="category-name-title txtl"><%= user_shown.name %></p>
+<%if user_shown.rank==0%>
+<p class="txtm"><%= "所持級：初級　年齢：#{user_shown.age}歳" %></p>
+<%else%>
+<p class="txtm"><%= "所持級：#{user_shown.rank}級　年齢：#{user_shown.age}歳" %></p>
+<%end%>
+
+<ul class="user-tabs">
+      <li  id="all"><%= link_to("全ての投稿", "/users/show/#{user_shown.id}") %></li>
+      <li ><%= link_to("スケーティング", "/users/posts/#{@current_user.id}/0") %></li>
+      <li id="jumps"><%= link_to("ジャンプ", "#") %></li>
+      <li id="spins"><%= link_to("スピン", "#") %></li>
+      <li class="active" id="others"><%= link_to("その他", "#") %></li>
+
+</ul>
+
+<ul id="jump-tabs"  class="jump-tabs">
+  <li><%= link_to("サルコウ", "/users/posts/#{@current_user.id}/10") %></li>
+  <li><%= link_to("トーループ", "/users/posts/#{@current_user.id}/11") %></li>
+  <li><%= link_to("ループ", "/users/posts/#{@current_user.id}/12") %></li>
+  <li><%= link_to("フリップ", "/users/posts/#{@current_user.id}/13") %></li>
+  <li><%= link_to("ルッツ", "/users/posts/#{@current_user.id}/14") %></li>
+  <li><%= link_to("アクセル", "/users/posts/#{@current_user.id}/15") %></li>
+</ul>
+<ul id="spin-tabs" class="spin-tabs">
+  <li><%= link_to("アップライト", "/users/posts/#{@current_user.id}/20") %></li>
+  <li><%= link_to("シット", "/users/posts/#{@current_user.id}/21") %></li>
+  <li><%= link_to("キャメル", "/users/posts/#{@current_user.id}/22") %></li>
+  <li><%= link_to("レイバック", "/users/posts/#{@current_user.id}/23") %></li>
+  <li><%= link_to("コンビ", "/users/posts/#{@current_user.id}/24") %></li>
+  <li><%= link_to("フライング", "/users/posts/#{@current_user.id}/25") %></li>
+</ul>
+<ul id="other-tabs" class="other-tabs visible">
+  <li><%= link_to("振付", "/users/posts/#{@current_user.id}/30") %></li>
+  <li><%= link_to("コンパル", "/users/posts/#{@current_user.id}/31") %></li>
+  <li><%= link_to("ダンス", "/users/posts/#{@current_user.id}/32") %></li>
+  <li class="active"><%= link_to("メンタル", "/users/posts/#{@current_user.id}/33") %></li>
+  <li><%= link_to("その他", "/users/posts/#{@current_user.id}/34") %></li>
+</ul>
+
+<div class="posts-box">
+<% posts.each do |post| %>
+<div class= "posts-index-item">
+  <div class="post-left">
+    <img src="<%= "/user_images/#{post.user.image_name}" %>">
+  </div>
+  <div class="post-right">
+    <% category = post.find_category() %>
+    <p><%= link_to(category.category,"/posts/search/#{category.number}", class: "category-name white txtxs") %></p>
+
+    <div class="user-info">
+      <%if post.user().rank==0%>
+      <%= link_to("#{post.user().name} /初級/ #{post.user().age}歳","/users/show/#{post.user().id}", class: "user-name") %>
+      <%else%>
+      <%= link_to("#{post.user().name} /#{post.user().rank}級/ #{post.user().age}歳","/users/show/#{post.user().id}", class: "user-name") %>
+      <%end%>
+      <span class="time"><%= time_ago_in_words(post.created_at) %>前</span>
+    </div>
+    <p><%= link_to(post.content,"/posts/#{post.id}",class: "index_content") %></p>
+
+    <%if Like.find_by(user_id: @current_user.id, post_id: post.id)%>
+      <%=link_to("/likes/#{post.id}/destroy/self") do %>
+        <span class="fa fa-heart unlike-btn"></span>
+      <%end%>
+    <%else%>
+      <%= link_to("/likes/#{post.id}/create/self") do %>
+        <span class="fa fa-heart like-btn"></span>
+      <%end%>
+    <%end%>
+    <%=Like.where(post_id: post.id).count%>
+
+  </div>
+</div>
+<% end %>
+</div>
+</div>
+
+</body>

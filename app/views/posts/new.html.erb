@@ -1,0 +1,45 @@
+
+<body>
+<div class="lets-post-wrapper">
+  <div class="posts-box">
+<%= form_tag("/posts/create/#{params[:category_number]}") do %>
+
+    <%category=Category.find_by(number: params[:category_number]) %>
+
+    <%if params[:category_number].to_i<=9 && params[:category_number].to_i>=0%>
+    <div class="new_title_0">
+      <%=category.category%>
+    </div>
+    <%end%>
+
+    <%if params[:category_number].to_i<=19 && params[:category_number].to_i>=10%>
+    <div class="new_title_10">
+      <%=category.category%>
+    </div>
+    <%end%>
+
+    <%if params[:category_number].to_i<=29 && params[:category_number].to_i>=20%>
+    <div class="new_title_20">
+      <%=category.category%>
+    </div>
+    <%end%>
+
+    <%if params[:category_number].to_i<=39 && params[:category_number].to_i>=30%>
+    <div class="new_title_30">
+      <%=category.category%>
+    </div>
+    <%end%>
+
+
+
+
+    <p></p>
+    <input class="form-tag" type = "input" name= "tag" placeholder="#タグ">
+    <p></p>
+    <textarea class="form-txt" name="content" placeholder="本文"></textarea>
+    <p></p>
+    <input class="submit-button white" type="submit" value="投稿する">
+<% end %>
+</div>
+</div>
+</body>

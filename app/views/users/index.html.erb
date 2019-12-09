@@ -1,0 +1,10 @@
+<header>
+</header>
+<% users = @users %>
+<body>
+<% users.each do |user| %>
+    <div class= "user">
+        <%= user.name + user.email %>
+    </div>
+<% end %>
+</body>
