@@ -1,27 +1,26 @@
-<%category=@category %>
-
-<%if category<=9 && category>=0%>
-<div class="new_title_0">
-  <%=@category_name%>
-</div>
+<!--要素の番号の大きさで、表示するタイトルを変更-->
+<%if @category<=9 && @category>=0%>
+  <div class="new_title_0">
+    <%=@category_name%>
+  </div>
 <%end%>
 
-<%if category<=19 && category>=10%>
-<div class="new_title_10">
-  <%=@category_name%>
-</div>
+<%if @category<=19 && @category>=10%>
+  <div class="new_title_10">
+    <%=@category_name%>
+  </div>
 <%end%>
 
-<%if category<=29 && category>=20%>
-<div class="new_title_20">
-  <%=@category_name%>
-</div>
+<%if @category<=29 && @category>=20%>
+  <div class="new_title_20">
+    <%=@category_name%>
+  </div>
 <%end%>
 
-<%if category<=39 && category>=30%>
-<div class="new_title_30">
-  <%=@category_name%>
-</div>
+<%if @category<=39 && @category>=30%>
+  <div class="new_title_30">
+    <%=@category_name%>
+  </div>
 <%end%>
 
 <div class="top-distance">

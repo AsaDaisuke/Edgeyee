@@ -1,31 +1,41 @@
 <div class="posts-box-show">
   <div class= "posts-index-item">
+    <!--投稿の左側は画像です-->
     <div class="post-left">
       <img src="<%= "/user_images/#{@post.user.image_name}" %>">
     </div>
+    <!--投稿の右側はその他の情報-->
     <div class="post-right">
+      <!--find_category()メソッドを使い、categoryに何についての投稿かという情報を代入-->
       <% category = @post.find_category() %>
+      <!--何についての投稿かを示すボタン-->
       <p><%= link_to(category.category,"/posts/search/#{category.number}", class: "category-name white txtxs") %></p>
 
       <div class="user-info">
+        <!--もし級が0級の場合、初級と表示-->
         <%if @post.user().rank==0%>
         <%= link_to("#{@post.user().name} /初級/ #{@post.user().age}歳","/users/show/#{@post.user().id}", class: "user-name") %>
         <%else%>
         <%= link_to("#{@post.user().name} /#{@post.user().rank}級/ #{@post.user().age}歳","/users/show/#{@post.user().id}", class: "user-name") %>
         <%end%>
+        <!--いつの投稿か表示-->
         <span class="time"><%= time_ago_in_words(@post.created_at) %>前</span>
       </div>
+      <!--投稿内容-->
       <p><%= @post.content%></p>
 
+      <!--もし、現在ログインしている人がすでに投稿をいいねしている場合、いいねを取り消す-->
       <%if Like.find_by(user_id: @current_user.id, post_id: @post.id)%>
         <%=link_to("/likes/#{@post.id}/destroy/show") do %>
           <span class="fa fa-heart unlike-btn"></span>
         <%end%>
       <%else%>
+      <!--もし、現在ログインしている人がまだ投稿にいいねしていない場合、いいねをつける-->
         <%= link_to("/likes/#{@post.id}/create/show") do %>
           <span class="fa fa-heart like-btn"></span>
         <%end%>
       <%end%>
+      <!--いいねの個数をカウント-->
       <%=Like.where(post_id: @post.id).count%>
 
     </div>

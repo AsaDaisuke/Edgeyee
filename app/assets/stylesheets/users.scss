@@ -67,248 +67,27 @@
 	height: 20px;
 }
 
-
-
-
-
-.post-button-fixed{
-	position: fixed;
-	right: 50px;
-	bottom: 50px;
-	display: inline-block;
-	width: 60px;
-	height: 60px;
-	background-color: $main-color1;
-	text-align: center;
-	line-height: 60px;
-	border-radius: 50%;
-	font-weight: bold;
-	transition: .3s;
-}
-.post-button-fixed:hover{
-	opacity: 0.8;
-}
-.modal{
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-.modal__bg{
-    background: rgba(0,0,0,0.8);
-    height: 100vh;
-    position: absolute;
-    width: 100%;
-}
-.modal__content{
-	position: absolute;
-  top: 20%;
-	left: 30%;
-	width: 40%;
-}
-.category-choice {
-	width: 200px;
-	height: 200px;
-	text-align: center;
-	line-height: 200px;
-	border-radius: 50%;
-	margin: 20px;
-	position: relative;
-	transition:all 0.4s;
-
-}
-.category-choices ul{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-content: center;
-}
-.category-choice a {
-	display: block;
-	font-weight: bold;
-	border-radius: 50%;
-	font-size: 25px;
-  transition: all 0.4s;
-	background-color: rgba(0,0,0,0);
-}
-
-.category-choices-jump {
-	display: none;
-}
-.category-choices-spin {
-	display: none;
-}
-.category-choices-other {
-	display: none;
-}
-
-.category-choice-sub{
-	width: 150px;
-	height: 150px;
-	text-align: center;
-	line-height: 150px;
-	border-radius: 50%;
-	margin: 10px;
-	position: relative;
-	transition: all 0.4s;
-}
-
-.category-choice-sub a {
-	display: block;
-	font-weight: bold;
-	font-size: 25px;
-	border-radius: 50%;
-  transition: all 0.4s;
-	background-color: rgba(0,0,0,0);
-}
-
-.skating{
-	color: $main-color1;
-	border: solid 2px $main-color1;
-}
-.skating:hover{
-	background-color: $main-color2;
-}
-.next-jumps,.category-choices-jump a{
-	color: $jump-color;
-	border: solid 2px $jump-color;
-
-}
-.next-jumps:hover,.category-choices-jump a:hover{
-	background-color: $jump-color2;
-}
-
-.category-choices-spin a,.next-spins{
-	color: $spin-color;
-	border: solid 2px $spin-color;
-}
-.category-choices-spin a:hover,.next-spins:hover{
-	background-color: $spin-color2;
-}
-.category-choices-other a,.next-others {
-	color: $other-color;
-	border: solid 2px $other-color;
-}
-.category-choices-other a:hover,.next-others:hover{
-	background-color: $other-color2;
-}
-
-
-
-
-.category-choice-search {
-	width: 200px;
-	height: 200px;
-	text-align: center;
-	line-height: 200px;
-	border-radius: 50%;
-	margin: 20px;
-	position: relative;
-	transition:all 0.4s;
-
-}
-.category-choices-search ul{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-content: center;
-}
-.category-choice-search a {
-	display: block;
-	font-weight: bold;
-	border-radius: 50%;
-	font-size: 25px;
-  transition: all 0.4s;
-	background-color: rgba(0,0,0,0);
-}
-
-.category-choices-jump-search {
-	display: none;
-}
-.category-choices-spin-search {
-	display: none;
-}
-.category-choices-other-search {
-	display: none;
-}
-
-.category-choice-sub-search{
-	width: 150px;
-	height: 150px;
-	text-align: center;
-	line-height: 150px;
-	border-radius: 50%;
-	margin: 10px;
-	position: relative;
-	transition: all 0.4s;
-}
-
-.category-choice-sub-search a {
-	display: block;
-	font-weight: bold;
-	font-size: 25px;
-	border-radius: 50%;
-  transition: all 0.4s;
-	background-color: rgba(0,0,0,0);
-}
-
-.skating-search{
-	color: $main-color1;
-	border: solid 2px $main-color1;
-}
-.skating-search:hover{
-	background-color: $main-color2;
-}
-.next-jumps-search,.category-choices-jump-search a{
-	color: $jump-color;
-	border: solid 2px $jump-color;
-
-}
-.next-jumps-search:hover,.category-choices-jump-search a:hover{
-	background-color: $jump-color2;
-}
-
-.category-choices-spin-search a,.next-spins-search{
-	color: $spin-color;
-	border: solid 2px $spin-color;
-}
-.category-choices-spin-search a:hover,.next-spins-search:hover{
-	background-color: $spin-color2;
-}
-.category-choices-other-search a,.next-others-search {
-	color: $other-color;
-	border: solid 2px $other-color;
-}
-.category-choices-other-search a:hover,.next-others-search:hover{
-	background-color: $other-color2;
-}
-
+//マイページの各カテゴリーのcss
 .user-tabs {
   margin: 10px 15% 0px 15%;
   background-color: white;
   overflow: hidden;
   box-shadow: 0 2px 6px #c1ced7;
 }
-
 .user-tabs li {
   float: left;
 }
-
 .user-tabs li.active {
   border-bottom: 2px solid #3ecdc6;
 }
-
 .user-tabs li.active a {
   color: #57575f;
 }
-
 .user-tabs a {
   display: inline-block;
   padding: 16px 30px;
   color: #afb6bf;
 }
-
 
 .jump-tabs{
 	display: none;
@@ -317,18 +96,15 @@
   overflow: hidden;
   box-shadow: 0 2px 6px #c1ced7;
 }
-
 .jump-tabs li{
 	float: left;
 }
 .jump-tabs li.active {
   border-bottom: 2px solid #3ecdc6;
 }
-
 .jump-tabs li.active a {
   color: #57575f;
 }
-
 .jump-tabs a {
   display: inline-block;
   padding: 16px 30px;
@@ -342,23 +118,21 @@
   overflow: hidden;
   box-shadow: 0 2px 6px #c1ced7;
 }
-
 .spin-tabs li{
 	float: left;
 }
 .spin-tabs li.active {
   border-bottom: 2px solid #3ecdc6;
 }
-
 .spin-tabs li.active a {
   color: #57575f;
 }
-
 .spin-tabs a {
   display: inline-block;
   padding: 16px 30px;
   color: #afb6bf;
 }
+
 .other-tabs{
 	display: none;
 	margin: 0px 15% 0px 15%;
@@ -366,18 +140,15 @@
   overflow: hidden;
   box-shadow: 0 2px 6px #c1ced7;
 }
-
 .other-tabs li{
 	float: left;
 }
 .other-tabs li.active {
   border-bottom: 2px solid #3ecdc6;
 }
-
 .other-tabs li.active a {
   color: #57575f;
 }
-
 .other-tabs a {
   display: inline-block;
   padding: 16px 30px;
@@ -385,4 +156,27 @@
 }
 .visible{
 	display: block;
+}
+
+//マイページのタイトル
+.category-name-title{
+	font-weight: bold;
+	margin: 30px 0 10px;
+	display: inline-block;
+	position: relative;
+}
+.category-name-title::before{
+ content: "";
+  position: absolute;
+  background: #a9e1ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  border: dashed 1px white;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  box-shadow: 0px 0px 0px 5px #a9e1ff;
 }

@@ -2,44 +2,43 @@
 <body>
 <div class="lets-post-wrapper">
   <div class="post-box">
-<%= form_tag("/posts/create/#{params[:category_number]}") do %>
+    <!--form_tagで投稿を送信-->
+    <%= form_tag("/posts/create/#{@category_number}") do %>
+      <%category=Category.find_by(number: @category_number) %>
 
-    <%category=Category.find_by(number: params[:category_number]) %>
+      <!--投稿時のタイトル。番号の大きさでcssを変更している-->
+      <%if @category_number.to_i<=9 && @category_number.to_i>=0%>
+        <div class="new_title_0">
+          <%=category.category%>
+        </div>
+      <%end%>
 
-    <%if params[:category_number].to_i<=9 && params[:category_number].to_i>=0%>
-    <div class="new_title_0">
-      <%=category.category%>
-    </div>
-    <%end%>
+      <%if @category_number.to_i<=19 && @category_number.to_i>=10%>
+        <div class="new_title_10">
+          <%=category.category%>
+        </div>
+      <%end%>
 
-    <%if params[:category_number].to_i<=19 && params[:category_number].to_i>=10%>
-    <div class="new_title_10">
-      <%=category.category%>
-    </div>
-    <%end%>
+      <%if @category_number.to_i<=29 && @category_number.to_i>=20%>
+        <div class="new_title_20">
+          <%=category.category%>
+        </div>
+      <%end%>
 
-    <%if params[:category_number].to_i<=29 && params[:category_number].to_i>=20%>
-    <div class="new_title_20">
-      <%=category.category%>
-    </div>
-    <%end%>
+      <%if @category_number.to_i<=39 && @category_number.to_i>=30%>
+        <div class="new_title_30">
+            <%=category.category%>
+        </div>
+      <%end%>
 
-    <%if params[:category_number].to_i<=39 && params[:category_number].to_i>=30%>
-    <div class="new_title_30">
-      <%=category.category%>
-    </div>
-    <%end%>
-
-
-
-
-    <p></p>
-    <input class="form-tag" type = "input" name= "tag" placeholder="#タグ">
-    <p></p>
-    <textarea class="form-txt" name="content" placeholder="本文"></textarea>
-    <p></p>
-    <input class="submit-button white" type="submit" value="投稿する">
-<% end %>
-</div>
+      <!--投稿内容-->
+      <p></p>
+      <input class="form-tag" type = "input" name= "tag" placeholder="#タグ">
+      <p></p>
+      <textarea class="form-txt" name="content" placeholder="本文"></textarea>
+      <p></p>
+      <input class="submit-button white" type="submit" value="投稿する">
+    <% end %><!--ここまでform_tag-->
+  </div>
 </div>
 </body>

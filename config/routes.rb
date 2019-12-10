@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   post "likes/:post_id/destroy" => "likes#destroy"
   post "likes/:post_id/create" => "likes#create"
 
-  get 'users/show/:id' => "users#show"
+
   get 'users/index' => "users#index"
+
+  #マイページにおいて、ある要素の投稿だけを表示する
+  get 'users/show/:id' => "users#show"
   get "users/posts/:id/0" => "users#show_0"
   get "users/posts/:id/10" => "users#show_10"
   get "users/posts/:id/11" => "users#show_11"
@@ -34,7 +37,6 @@ Rails.application.routes.draw do
   get "users/posts/:id/32" => "users#show_32"
   get "users/posts/:id/33" => "users#show_33"
   get "users/posts/:id/34" => "users#show_34"
-  get "users/posts/:id/25" => "users#show_35"
 
   get 'posts/search/:category_number' => "posts#search"
   get "posts/new/:category_number" => "posts#new"

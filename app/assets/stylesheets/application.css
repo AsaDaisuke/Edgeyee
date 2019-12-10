@@ -64,11 +64,15 @@
 
 /*ヘッダー*/
 header{
-	background-color: #F2F4F6;
-	padding: 10px 5%;
-	display: flex;
+  width: 100%;
+	background-color: rgba(242,244,246,0.8);
+	padding: 7px 5%;
+	display: block;
 	justify-content: space-between;
-
+  /*ヘッダーを上部に固定*/
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
 .header-left{
   font-size:32px;
@@ -77,9 +81,214 @@ header{
   color: blue;
   font-weight: bold;
 }
+.blank{
+  height: 60px;
+}
 
+/*投稿ボタン*/
+.post-button-fixed{
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	background-color: $main-color1;
+	text-align: center;
+	line-height: 60px;
+	border-radius: 50%;
+	font-weight: bold;
+	transition: .3s;
+}
+.post-button-fixed:hover{
+	opacity: 0.8;
+}
 
+/*投稿モーダル*/
+.modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.modal__bg{
+    background: rgba(0,0,0,0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+.modal__content{
+	position: absolute;
+  top: 20%;
+	left: 30%;
+	width: 40%;
+}
+.category-choice {
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	line-height: 200px;
+	border-radius: 50%;
+	margin: 20px;
+	position: relative;
+	transition:all 0.4s;
 
-.content-wrapper{
-	padding: 30px 15%;
+}
+.category-choices ul{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+.category-choice a {
+	display: block;
+	font-weight: bold;
+	border-radius: 50%;
+	font-size: 25px;
+  transition: all 0.4s;
+	background-color: rgba(0,0,0,0);
+}
+
+.category-choices-jump {
+	display: none;
+}
+.category-choices-spin {
+	display: none;
+}
+.category-choices-other {
+	display: none;
+}
+
+.category-choice-sub{
+	width: 150px;
+	height: 150px;
+	text-align: center;
+	line-height: 150px;
+	border-radius: 50%;
+	margin: 10px;
+	position: relative;
+	transition: all 0.4s;
+}
+
+.category-choice-sub a {
+	display: block;
+	font-weight: bold;
+	font-size: 25px;
+	border-radius: 50%;
+  transition: all 0.4s;
+	background-color: rgba(0,0,0,0);
+}
+
+.skating{
+	color: $main-color1;
+	border: solid 2px $main-color1;
+}
+.skating:hover{
+	background-color: $main-color2;
+}
+.next-jumps,.category-choices-jump a{
+	color: $jump-color;
+	border: solid 2px $jump-color;
+
+}
+.next-jumps:hover,.category-choices-jump a:hover{
+	background-color: $jump-color2;
+}
+
+.category-choices-spin a,.next-spins{
+	color: $spin-color;
+	border: solid 2px $spin-color;
+}
+.category-choices-spin a:hover,.next-spins:hover{
+	background-color: $spin-color2;
+}
+.category-choices-other a,.next-others {
+	color: $other-color;
+	border: solid 2px $other-color;
+}
+.category-choices-other a:hover,.next-others:hover{
+	background-color: $other-color2;
+}
+
+/*検索モーダル*/
+.category-choice-search {
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	line-height: 200px;
+	border-radius: 50%;
+	margin: 20px;
+	position: relative;
+	transition:all 0.4s;
+
+}
+.category-choices-search ul{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+.category-choice-search a {
+	display: block;
+	font-weight: bold;
+	border-radius: 50%;
+	font-size: 25px;
+  transition: all 0.4s;
+	background-color: rgba(0,0,0,0);
+}
+.category-choices-jump-search {
+	display: none;
+}
+.category-choices-spin-search {
+	display: none;
+}
+.category-choices-other-search {
+	display: none;
+}
+.category-choice-sub-search{
+	width: 150px;
+	height: 150px;
+	text-align: center;
+	line-height: 150px;
+	border-radius: 50%;
+	margin: 10px;
+	position: relative;
+	transition: all 0.4s;
+}
+.category-choice-sub-search a {
+	display: block;
+	font-weight: bold;
+	font-size: 25px;
+	border-radius: 50%;
+  transition: all 0.4s;
+	background-color: rgba(0,0,0,0);
+}
+.skating-search{
+	color: $main-color1;
+	border: solid 2px $main-color1;
+}
+.skating-search:hover{
+	background-color: $main-color2;
+}
+.next-jumps-search,.category-choices-jump-search a{
+	color: $jump-color;
+	border: solid 2px $jump-color;
+}
+.next-jumps-search:hover,.category-choices-jump-search a:hover{
+	background-color: $jump-color2;
+}
+.category-choices-spin-search a,.next-spins-search{
+	color: $spin-color;
+	border: solid 2px $spin-color;
+}
+.category-choices-spin-search a:hover,.next-spins-search:hover{
+	background-color: $spin-color2;
+}
+.category-choices-other-search a,.next-others-search {
+	color: $other-color;
+	border: solid 2px $other-color;
+}
+.category-choices-other-search a:hover,.next-others-search:hover{
+	background-color: $other-color2;
 }
