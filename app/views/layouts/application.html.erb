@@ -11,56 +11,51 @@
 
     <script type="text/javascript">
 
-
+//投稿モーダル
 $(function(){
-    $('.js-modal-open').on('click',function(){
-        $('.js-modal').fadeIn(150);
-        $('.category-choices>ul').show();
-        return false;
-    });
-    $('.js-modal-close').on('click',function(){
-        $('.js-modal').fadeOut(150);
-        $('.category-choices-jump').hide();
-        $('.category-choices-spin').hide();
-        $('.category-choices-other').hide();
-        return false;
-    });
-    $('.category-choice,.category-choice-sub').click(function (event) {
+  //投稿時、モーダルを開く
+  $('.js-modal-open').on('click',function(){
+    $('.js-modal').fadeIn(150);
+    $('.category-choices>ul').show();
+    return false;
+  });
+  //選択肢外の黒いところを押すと、モーダルが閉じる
+  $('.js-modal-close').on('click',function(){
+    $('.js-modal').fadeOut(150);
+    $('.category-choices-jump').hide();
+    $('.category-choices-spin').hide();
+    $('.category-choices-other').hide();
+    return false;
+  });
+  //選択肢を選んでもモーダルが閉じないようにする
+  $('.category-choice,.category-choice-sub').click(function (event) {
                 // ウィンドウの中身をクリックしても、閉じないようにする
                 // (親である .windowBg への伝播を止める)
-                event.stopPropagation();
-        });
+      event.stopPropagation();
+  });
+  //ジャンプを押すと、次のモーダルを表示
+  $('.next-jumps').click(function () {
+    $('.category-choices>ul').toggle();
+    $('.category-choices-jump').show(200).fadeIn(200);
+    return false;
+  });
+  //スピンを押すと、次のモーダルを表示
+  $('.next-spins').click(function () {
+    $('.category-choices>ul').toggle();
+    $('.category-choices-spin').show(200).fadeIn(200);
+    return false;
+  });
+  //その他を押すと、次のモーダルを表示
+  $('.next-others').click(function () {
+    $('.category-choices>ul').toggle();
+    $('.category-choices-other').show(200).fadeIn(200);
+    return false;
+  });
 });
 
 
 
-$(function () {
-    $('.next-jumps').click(function () {
-        $('.category-choices>ul').toggle();
-        $('.category-choices-jump').show(200).fadeIn(200);
-        return false;
-    });
-});
-
-$(function () {
-    $('.next-spins').click(function () {
-        $('.category-choices>ul').toggle();
-        $('.category-choices-spin').show(200).fadeIn(200);
-        return false;
-    });
-});
-
-$(function () {
-    $('.next-others').click(function () {
-        $('.category-choices>ul').toggle();
-        $('.category-choices-other').show(200).fadeIn(200);
-        return false;
-    });
-});
-
-
-
-
+//検索モーダル
 $(function(){
     $('.search').on('click',function(){
         $('.js-modal-search').fadeIn(150);

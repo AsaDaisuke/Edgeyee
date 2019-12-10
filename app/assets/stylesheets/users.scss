@@ -3,16 +3,27 @@
 @import "application";
 @import "posts";
 
-.image_signup{
-	text-align: right;
+//新規登録ボタン
+.new-button{
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 5px;
+	text-decoration: none;
+	background-color: #25C6FF;
+	color: white;
+	font-size: 14px;
 }
 
+//ログイン画面
 .login-bg{
 	background-image: url("/top-bg2.jpg");
 	background-size: cover;
 	height: 100vh;
 }
-
+.login-header{
+	text-align: right;
+	padding: 10px 5%;
+}
 .users-login-wrapper{
 	width: 360px;
 	margin: 0 auto;
@@ -31,29 +42,11 @@
 	font-weight: bold;
 	padding: 20px 0;
 }
-
-.login-header{
-	text-align: right;
-	padding: 10px 5%;
+.login-form{
+	padding: 5px 10px;
+	width: 80%;
 }
-input::placeholder{
-	color: #CCCCCC;
-}
-textarea::placeholder{
-	color: #CCCCCC;
-}
-
-.new-button{
-
-	display: inline-block;
-	padding: 5px 15px;
-	border-radius: 5px;
-	text-decoration: none;
-	background-color: #25C6FF;
-	color: white;
-	font-size: 14px;
-}
- .submit-button{
+.submit-button{
  	width: 80%;
  	background-color: $main-color1;
  	border: none;
@@ -63,20 +56,20 @@ textarea::placeholder{
  	font-weight: bold;
  	transition: .3s;
  }
- .submit-button:hover{
+.submit-button:hover{
  	cursor:pointer;
  	opacity: 0.8;
  }
 
- 
-.login-form{
-	padding: 5px 10px;
-	width: 80%;
-}
+//新規登録画面
 .select_form{
 	width: 40%;
 	height: 20px;
 }
+
+
+
+
 
 .post-button-fixed{
 	position: fixed;

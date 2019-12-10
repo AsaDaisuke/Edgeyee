@@ -14,6 +14,7 @@
  *= require_self
  */
 
+/*全要素に対するCSS*/
  *{
  	margin: 0;
  	padding: 0;
@@ -23,6 +24,7 @@
  	font-family: HiraginoSans-W3, "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Verdana, sans-serif;
  }
 
+/*文字サイズ指定*/
  .txtll{
  	font-size: 50px;
  }
@@ -36,6 +38,15 @@
  	font-size: 12px;
  }
 
+/*placeholderの色指定*/
+ input::placeholder{
+ 	color: #CCCCCC;
+ }
+ textarea::placeholder{
+ 	color: #CCCCCC;
+ }
+
+/*よく使う色の定義*/
  $main-color1: #25C6FF;
  $main-color2: #4169E1;
  $jump-color: #319F4F;
@@ -44,18 +55,14 @@
  $spin-color2: #FFFA71;
  $other-color: #CB4E13;
  $other-color2: #FFA777;
-
-
 .white{
 	color: white;
 }
 .grey{
 	color: #CCCCCC;
 }
-.content-wrapper{
-	padding: 30px 15%;
-}
 
+/*ヘッダー*/
 header{
 	background-color: #F2F4F6;
 	padding: 10px 5%;
@@ -63,11 +70,16 @@ header{
 	justify-content: space-between;
 
 }
-
 .header-left{
   font-size:32px;
 }
 .header-letter{
   color: blue;
   font-weight: bold;
+}
+
+
+
+.content-wrapper{
+	padding: 30px 15%;
 }

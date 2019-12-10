@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   post "likes/:post_id/destroy/self" => "likes#destroy_self"
   post "likes/:post_id/create/self" => "likes#create_self"
 
-
   get "likes/:post_id/destroy/show" => "likes#destroy_show"
   get "likes/:post_id/create/show" => "likes#create_show"
 
@@ -15,14 +14,8 @@ Rails.application.routes.draw do
   post "likes/:post_id/destroy" => "likes#destroy"
   post "likes/:post_id/create" => "likes#create"
 
-  get 'users/index' => "users#index"
-
-  get 'posts/search/:category_number' => "posts#search"
-  get 'posts/index' => "posts#index"
-  get "users/signup" => "users#signup_form"
-  post 'users/signup' => "users#signup"
   get 'users/show/:id' => "users#show"
-
+  get 'users/index' => "users#index"
   get "users/posts/:id/0" => "users#show_0"
   get "users/posts/:id/10" => "users#show_10"
   get "users/posts/:id/11" => "users#show_11"
@@ -43,12 +36,17 @@ Rails.application.routes.draw do
   get "users/posts/:id/34" => "users#show_34"
   get "users/posts/:id/25" => "users#show_35"
 
-  get '/' => "home#top"
+  get 'posts/search/:category_number' => "posts#search"
   get "posts/new/:category_number" => "posts#new"
   post "posts/create/:category_number" => "posts#create"
+  get 'posts/index' => "posts#index"
   get 'posts/:id' => "posts#show"
+
+  get "users/signup" => "users#signup_form"
+  post 'users/signup' => "users#signup"
   get 'login' => "users#login_form"
   post 'login' => "users#login"
   post 'logout' => "users#logout"
+  get '/' => "home#top"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

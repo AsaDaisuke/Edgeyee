@@ -9,8 +9,12 @@ class UsersController < ApplicationController
       redirect_to("/posts/index")
     end
   end
+
+  #ログイン画面表示
   def login_form
   end
+
+  #ログイン
   def login
     @user = User.find_by(email: params[:email],password: params[:password])
     if @user
@@ -20,12 +24,11 @@ class UsersController < ApplicationController
       render("users/login_form")
     end
   end
+
   def logout
     session[:user_id] = nil
     redirect_to("/login")
   end
-
-
 
 
   def show
