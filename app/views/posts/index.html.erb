@@ -36,7 +36,7 @@
 
         <!--もし、現在ログインしている人がすでに投稿をいいねしている場合、いいねを取り消す-->
         <%if Like.find_by(user_id: @current_user.id, post_id: post.id)%>
-        　<!--ここでjqueryによって、spanを押すとtopからの距離を取得し、h1,h2を利用してtextareaにtopからの距離を入れ、送信している-->
+        <!--ここでjqueryによって、spanを押すとtopからの距離を取得し、h1,h2を利用してtextareaにtopからの距離を入れ、送信している-->
           <span class="fa fa-heart unlike-btn"></span>
           <%=Like.where(post_id: post.id).count%>
           <h1><%=post.id%></h1>
