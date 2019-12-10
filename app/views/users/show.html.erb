@@ -3,6 +3,7 @@
 
 <body>
 <div class="lets-post-wrapper">
+<!--マイページのタイトル-->
 <p class="category-name-title txtl"><%= user_shown.name %></p>
 <%if user_shown.rank==0%>
 <p class="txtm"><%= "所持級：初級　年齢：#{user_shown.age}歳" %></p>
@@ -13,8 +14,9 @@
 <div class="top-distance">
   <%= @name %>
 </div>
-
+<!--初期表示のタブ-->
 <ul class="user-tabs">
+    <!--選択中の要素にactiveのクラスが入っていて、users.cssにおいてborder-bottomで下線が追加されます。-->
       <li class="active" id="all"><%= link_to("全ての投稿", "/users/show/#{user_shown.id}") %></li>
       <li id="skating"><%= link_to("スケーティング", "/users/posts/#{@user_shown.id}/0") %></li>
       <li id="jumps"><%= link_to("ジャンプ", "#") %></li>
@@ -22,7 +24,7 @@
       <li id="others"><%= link_to("その他", "#") %></li>
 
 </ul>
-
+<!--ジャンプタブ jqueryによって表示される-->
 <ul id="jump-tabs"  class="jump-tabs">
   <li><%= link_to("サルコウ", "/users/posts/#{@user_shown.id}/10") %></li>
   <li><%= link_to("トーループ", "/users/posts/#{@user_shown.id}/11") %></li>
@@ -31,6 +33,7 @@
   <li><%= link_to("ルッツ", "/users/posts/#{@user_shown.id}/14") %></li>
   <li><%= link_to("アクセル", "/users/posts/#{@user_shown.id}/15") %></li>
 </ul>
+<!--スピンタブ-->
 <ul id="spin-tabs" class="spin-tabs">
   <li><%= link_to("アップライト", "/users/posts/#{@user_shown.id}/20") %></li>
   <li><%= link_to("シット", "/users/posts/#{@user_shown.id}/21") %></li>
@@ -39,6 +42,7 @@
   <li><%= link_to("コンビ", "/users/posts/#{@user_shown.id}/24") %></li>
   <li><%= link_to("フライング", "/users/posts/#{@user_shown.id}/25") %></li>
 </ul>
+<!--その他タブ-->
 <ul id="other-tabs" class="other-tabs">
   <li><%= link_to("振付", "/users/posts/#{@user_shown.id}/30") %></li>
   <li><%= link_to("コンパル", "/users/posts/#{@user_shown.id}/31") %></li>
@@ -79,7 +83,6 @@
               <input type="submit" class="submit" id="<%=post.id%>" value="送信">
             <%end%>
 
-
           <%else%>
             <span class="fa fa-heart like-btn"></span>
             <%=Like.where(post_id: post.id).count%>
@@ -90,11 +93,7 @@
               <input type="submit" class="submit" id="<%=post.id%>" value="送信">
             <%end%>
 
-
           <%end%>
-
-
-
 
         </div>
       </div>

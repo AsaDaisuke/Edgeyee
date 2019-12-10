@@ -1,74 +1,74 @@
-
-
 <body>
+<!--検索ボタン-->
 <div class="lets-post-wrapper">
     <%= link_to("検索する","#",class: "search lets-post white txtl") %>
 </div>
+<!--topからの距離を保存する仮置場。表示はされない。-->
 <div class="top-distance">
   <%= @name %>
 </div>
+
 <div class="posts-box">
-<%
-    posts = @posts
-%>
-
-
-
-
-<% posts.each do |post| %>
-
+<% @posts.each do |post| %>
     <div class= "posts-index-item">
+      <!--投稿の左側は画像です-->
       <div class="post-left">
         <img src="<%= "/user_images/#{post.user.image_name}" %>">
       </div>
       <div class="post-right">
+        <!--find_category()メソッドを使い、categoryに何についての投稿かという情報を代入-->
         <% category = post.find_category() %>
+        <!--何についての投稿かを示すボタン-->
         <p><%= link_to(category.category,"/posts/search/#{category.number}", class: "category-name white txtxs") %></p>
 
         <div class="user-info">
+          <!--もし級が0級の場合、初級と表示-->
           <%if post.user().rank==0%>
           <%= link_to("#{post.user().name} /初級/ #{post.user().age}歳","/users/show/#{post.user().id}", class: "user-name") %>
           <%else%>
           <%= link_to("#{post.user().name} /#{post.user().rank}級/ #{post.user().age}歳","/users/show/#{post.user().id}", class: "user-name") %>
           <%end%>
+          <!--いつの投稿か表示-->
           <span class="time"><%= time_ago_in_words(post.created_at) %>前</span>
         </div>
+        <!--投稿内容-->
         <p><%= link_to(post.content,"/posts/#{post.id}",class: "index_content") %></p>
 
+        <!--もし、現在ログインしている人がすでに投稿をいいねしている場合、いいねを取り消す-->
         <%if Like.find_by(user_id: @current_user.id, post_id: post.id)%>
+        <!--ここでjqueryによって、spanを押すとtopからの距離を取得し、h1,h2を利用してtextareaにtopからの距離を入れ、送信している-->
           <span class="fa fa-heart unlike-btn"></span>
           <%=Like.where(post_id: post.id).count%>
           <h1><%=post.id%></h1>
           <h2><%=post.id%></h2>
+          <!--jqueryにより自動でtopからの距離が送信される-->
           <%=form_tag("/likes/#{post.id}/destroy") do%>
             <textarea name="top" class="<%=post.id%>"></textarea>
             <input type="submit" class="submit" id="<%=post.id%>" value="送信">
           <%end%>
 
-
+        <!--もし、現在ログインしている人がまだ投稿にいいねしていない場合、いいねをつける-->
         <%else%>
+          <!--ここでjqueryによって、spanを押すとtopからの距離を取得し、h1,h2を利用してtextareaにtopからの距離を入れ、送信している-->
           <span class="fa fa-heart like-btn"></span>
           <%=Like.where(post_id: post.id).count%>
           <h1><%=post.id%></h1>
           <h2><%=post.id%></h2>
+          <!--jqueryにより自動でtopからの距離が送信される-->
           <%=form_tag("/likes/#{post.id}/create") do%>
             <textarea name="top" class="<%=post.id%>"></textarea>
             <input type="submit" class="submit" id="<%=post.id%>" value="送信">
           <%end%>
 
-
         <%end%>
-
-
-
 
       </div>
     </div>
 <% end %>
 </div>
 
-
-<div class="modal js-modal-search">
+<!--検索モーダル-->
+    <div class="modal js-modal-search">
         <div class="modal__bg js-modal-close-search">
         <div class="modal__content">
           <div class="category-choices-search">

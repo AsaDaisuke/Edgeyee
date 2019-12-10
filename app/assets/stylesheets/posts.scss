@@ -4,12 +4,19 @@
 @import "application";
 
 
-
-.lets-post-wrapper{
-	text-align: center;
-
+//投稿詳細ページ
+.posts-box-show{
+	margin-top: 50px;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
+//タイトルを真ん中におく
+.lets-post-wrapper{
+	text-align: center;
+}
+
+//検索ボタン
 .lets-post{
 	margin: 20px;
 	background-color: $main-color1;
@@ -26,16 +33,13 @@
 	top: -3px;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
+
+//postsの表示範囲
 .posts-box{
 	margin: 10px 15%;
 }
 
-.posts-box-show{
-	margin-top: 50px;
-	margin-left: 15%;
-	margin-right: 15%;
-}
-
+//posts左のcategoryボタン
 .category-name{
 	display: inline-block;
 	background-color: #000080;
@@ -48,11 +52,12 @@
 	top: 0;
 	transition: .25s;
 	color: white;
-
 }
 .category-name:hover{
 	top: -2px;
 }
+
+//post-box
 .posts-index-item {
   padding: 20px 30px;
   background-color: white;
@@ -60,28 +65,10 @@
   box-shadow: 0 2px 6px #c1ced7;
 	border-radius: 4px;
 }
-.time{
-	position: absolute;
-	left:78%;
-}
-.like-btn {
-  color: #8899a6;
-}
-
-.unlike-btn {
-  color: #ff2581;
-}
-.fa{
-	margin-top:10px;
-}
-
-
-
 .post-left {
   float: left;
   width: 10%;
 }
-
 .post-left img{
 	width: 60px;
   height: 60px;
@@ -91,25 +78,37 @@
   object-fit: cover;
 	margin-top: 10px;
 }
-
 .post-right {
   float: left;
   width: 90%;
   padding-left: 25px;
   text-align: left;
 }
-
 .user-name{
 	display: inline-block;
 	font-weight: 600;
 	color: black;
 	over-flow: hidden;
-
 }
 .user-name:hover{
 	color: #3ecdc6;
 }
+.time{
+	position: absolute;
+	left:78%;
+}
+//いいね!ボタン
+.like-btn {
+  color: #8899a6;
+}
+.unlike-btn {
+  color: #ff2581;
+}
+.fa{
+	margin-top:10px;
+}
 
+//元の位置にスクロールするために必要な要素
 .posts-box h1{
 	display: none;
 }
@@ -125,33 +124,15 @@
 .top-distance{
 	display: none;
 }
-.category-name-title{
-	font-weight: bold;
-	margin: 30px 0 10px;
-	display: inline-block;
-	position: relative;
-}
-.category-name-title::before{
- content: "";
-  position: absolute;
-  background: #a9e1ff;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  top: 50%;
-  border: dashed 1px white;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  z-index: -1;
-  box-shadow: 0px 0px 0px 5px #a9e1ff;
-}
+
+//投稿内容
 .index_content{
 	color: black;
 	padding-top:5px;
 	display: block;
 }
 
+//新規投稿のフォーム
 .form-tag{
 	width: 80%;
 	border: 1px solid #CCCCCC;
@@ -169,6 +150,8 @@
 textarea{
 	resize: none;
 }
+
+//カテゴリー別表示のページのタイトル
 .new_title_0{
 	width: 100px;
 	height: 100px;

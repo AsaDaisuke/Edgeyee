@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  #likesコントローラーでは、URLからいいねしたpost_idを、@current_userからいいねしたユーザーのidを、form_tagからtopからの距離を受け取ります。
+  #topからの距離を返すために、redirectではなくrenderを使います。
   def create
     if Like.find_by(user_id: @current_user.id, post_id: params[:post_id])
       @name= params[:top]
