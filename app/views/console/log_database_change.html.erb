@@ -1,0 +1,36 @@
+<% if @categories_created %>
+    <% @categories_created.each do |category| %>
+        <p>
+        created
+        <%= category %>
+ 
+    <% end %>
+<% end %>
+<% if @categories_skipped %>
+    <% @categories_skipped.each do |category| %>
+        <p>
+        skipped
+        <%= category %>
+        (すでに存在するnumberが指定されたため)
+
+    <% end %>
+<% end %>
+<% if @categories_deleted %>
+    <% @categories_deleted.each do |category| %>
+        <p>
+        deleted 
+        a category
+
+    <% end %>
+<% end %>
+<% if @categories_kept %>
+    <% @categories_kept.each do |category| %>
+        <p>
+        kept
+        <%= category %>
+        （クッキーにないので、多分再読み込みとかされて意図しない動きしてそうなので念の為消さないでおく）
+    <% end %>
+<% end %>
+<p>
+<%= link_to "管理画面トップに戻る","/console"%>
+<%= link_to "一覧に戻る","/console/database/categories/view"%>

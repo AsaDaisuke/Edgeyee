@@ -1,0 +1,17 @@
+確認画面
+<p>
+<%= @category.category %>
+を
+<%= link_to "削除する", "/console/database/categories/delete/#{@category.number.to_s}" %>
+<p>
+
+<% if Post.find_by(category: @category.number.to_i) %>
+するので、ほぼ確実にindexとかでバグる。
+category.findby(number: post.number)とか実行されたときに、見つからないから。
+<% else %>
+このカテゴリの投稿は、存在しないので多分消して良い
+
+<% end %>
+<p>
+<%= link_to "管理画面トップに戻る","/console"%>
+<%= link_to "一覧に戻る","/console/database/categories/view"%>

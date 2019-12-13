@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'console/view'
   post "likes/:post_id/destroy/self_" => "likes#destroy_self_"
   post "likes/:post_id/create/self_" => "likes#create_self_"
 
@@ -48,5 +49,13 @@ Rails.application.routes.draw do
   post 'login' => "users#login"
   post 'logout' => "users#logout"
   get '/' => "home#top"
+
+  get 'console/database/categories/view' => "console#view"
+  post 'console/database/categories/create_from_textarea' => "console#create_from_textarea"
+  get "console/database/categories/delete_confirm/:number" => "console#delete_confirm"
+  get "console/database/categories/delete/:number" => "console#delete"
+  get "console" => "console#top"
+  get "console/database/categories/export" => "console#export"
+  get "console/database/categories/create_by_default" => "console#create_by_default"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

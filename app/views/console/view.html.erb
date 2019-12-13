@@ -1,0 +1,16 @@
+<%= link_to "管理画面トップに戻る","/console"%>
+<%= link_to "他の環境にエクスポート","/console/database/categories/export"%>
+
+<% @categories_all.each do |category| %>
+    <p>
+    <%= category.number%>
+    <%=category.category %>
+    <%= link_to "削除", "/console/database/categories/delete_confirm/#{category.number.to_s}" %>
+
+<% end %>
+<p>
+<%= form_tag("/console/database/categories/create_from_textarea") do %>
+    <textarea name="content" placeholder=""></textarea>
+      <p></p>
+    <input type="submit" value="登録する">
+<% end %>

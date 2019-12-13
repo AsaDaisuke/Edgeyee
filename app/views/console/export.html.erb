@@ -1,0 +1,13 @@
+<%= link_to "管理画面トップに戻る","/console"%>
+<%= link_to "一覧に戻る","/console/database/categories/view"%>
+<p>
+以下をコピペすれば良い
+<br>
+<br>
+<br>
+
+<% @categories_all.each do |category| %>
+    <p>
+    <%= category.number%>
+    <%= category.category%>
+<% end %>
